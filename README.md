@@ -17,7 +17,7 @@
 
 #### Continuous Deployment 🚀
 
-![Heroku](https://heroku-badge.herokuapp.com/?app=videoplayer-web)
+![Heroku](https://pyheroku-badge.herokuapp.com/?app=videoplayer-web)
 
 ## Installation 🔧
 
