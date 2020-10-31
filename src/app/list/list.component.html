@@ -1,0 +1,23 @@
+<table class="table" *ngIf="repo.videos.length > 0; else nodata">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let video of repo.videos">
+            <td>
+                <video id="minivideo" (click)="selectVideo(video.id)"
+                    [attr.poster]="video.id === repo.videos.length ? '../../assets/poster/avengersposter.png' : ''" src="{{video.url}}"></video>
+            </td>
+            <td>
+                <button class="btn btn-link" (click)="selectVideo(video.id)">{{ video.name }}</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #nodata>
+    <h3>Waiting for videos...</h3>
+</ng-template>

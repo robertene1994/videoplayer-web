@@ -1,0 +1,59 @@
+<div>
+    <div id="player">
+        <video #videoRef id="video" src="{{repo?.currentVideo?.url}}" crossorigin="anonymous">
+            <track *ngFor="let subtitle of repo?.currentVideo?.subtitles" kind="subtitles" label="{{subtitle.language}}" src="{{subtitle.url}}" srclang="{{subtitle.srclang}}">
+        </video>
+        <canvas #canvas id="canvas" height="360" width="640"></canvas>
+        <div id="positionview">
+            <div id="transportbar" (click)="changePosition($event)">
+                <div id="position" [ngStyle]="{ 'width': progressWidth }"></div>
+            </div>
+            <div id="time">
+                <span>{{currentTime}}</span> / <span id="duration">{{duration}}</span>
+            </div>
+        </div>
+        <div id="controls" *ngIf="repo.videos.length > 0; else nodata">
+            <button (click)="togglePlay()">
+                <img src="{{togglePlayUrl}}" alt="{{togglePlayState}}" title="{{togglePlayState}}" />
+            </button>
+            <button (click)="stop()">
+                <img src="../../assets/img/stop.png" alt="Stop" title="Stop" /></button>
+            <button (click)="back()">
+                <img src="../../assets/img/back.png" alt="Back" title="Back" />
+            </button>
+            <button (click)="forward()">
+                <img src="../../assets/img/forward.png" alt="Forward" title="Forward" />
+            </button>
+            <button (click)="turnDown()" [disabled]="isNotPossibleToTurnDown()">
+                <img src="../../assets/img/lower.png" alt="Turn down" title="Turn down" />
+            </button>
+            <button (click)="turnUp()" [disabled]="isNotPossibleToTurnUp()">
+                <img src="../../assets/img/higher.png" alt="Turn up" title="Turn up" />
+            </button>
+            <button (click)="toggleMute()">
+                <img src="{{toggleMuteUrl}}" alt="{{toggleMuteState}}" title="{{toggleMuteState}}" />
+            </button>
+            <button (click)="toggleCanvasAnimation()">
+                <img src="../../assets/img/animation.png" alt="Show/Hide Canvas Animation" title="Show/Hide Canvas Animation" />
+            </button>
+        </div>
+        <div *ngIf="repo?.currentVideo?.subtitles?.length > 0">
+            <h4>Subtitles</h4>
+            <button (click)="disableSubtitles()">
+                <img src="../../assets/img/nosubtitle.png" alt="Disable subtitles" title="Disable subtitles" />
+            </button>
+            <button *ngFor="let subtitle of repo?.currentVideo?.subtitles" (click)="enableSubtitle(subtitle.srclang)">
+                <img src="../../assets/img/{{subtitle.srclang}}subtitle.png" alt="{{subtitle.language}} subtitle" title="{{subtitle.language}} subtitle" />
+            </button>
+        </div>
+    </div>
+    <div id="volumecontrol">
+        <div id="volumebar">
+            <div id="volume" [ngStyle]="{ 'height': volumeHeight, 'marginTop': volumeMarginTop }"></div>
+        </div>
+    </div>
+</div>
+
+<ng-template #nodata>
+    <h3>Waiting for a video to be processed</h3>
+</ng-template>
