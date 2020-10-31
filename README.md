@@ -9,7 +9,7 @@
     <img src="https://forthebadge.com/images/badges/uses-css.svg"/>
 </h4>
 
-### Web application for playing videos with subtitles and MPEG-DASH technology, built with Angular. It can be accessed at [VideoPlayer](https://videoplayer-web.herokuapp.com).
+### Web application for playing videos with subtitles and [MPEG-DASH](https://www.encoding.com/mpeg-dash/) technology, built with Angular. It can be accessed at [VideoPlayer](https://videoplayer-web.herokuapp.com).
 
 #### DevOps (CI/CD) ☁
 
@@ -43,7 +43,7 @@ Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.  
+Builds the app for production to the `dist` folder.  
 It correctly bundles Angular in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes. The app is ready to be deployed!
