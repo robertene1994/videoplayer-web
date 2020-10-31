@@ -1,0 +1,61 @@
+#video {
+    height: 360px;
+    width: 640px;
+}
+
+#canvas {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 10;
+}
+
+#player {
+    float: left;
+}
+
+
+/*PROGRESS BAR*/
+
+#positionview {
+    width: 644px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#transportbar {
+    height: 14px;
+    width: 644px;
+    border: 2px solid gray;
+}
+
+#position {
+    background: #D7BC28;
+    height: 10px;
+    width: 0px;
+}
+
+#time {
+    float: right;
+}
+
+
+/*VOLUME CONTROL*/
+
+#volumecontrol {
+    float: left;
+    margin-left: 10px;
+}
+
+#volumebar {
+    height: 364px;
+    width: 14px;
+    border: 2px solid gray;
+}
+
+#volume {
+    height: 360px;
+    width: 10px;
+    background: yellowgreen;
+}
